@@ -2,60 +2,14 @@
     
 
     <head>
+        
         <link rel="stylesheet" href="bootstrap-css/bootstrap.css">
+        <link rel="stylesheet" href="css/index.css">
         <script src="bootstrap-js/bootstrap.bundle.js"></script>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            .carousel-control-prev,
-            .carousel-control-next {
-                width: 8.333%;
-            }
-
-        h1 {
-            font-weight: bold;
-            font-size: 14pt;
-            font-family: Arial;
-        }
-        h2 {
-            font-weight: bold;
-            font-size: 12pt;
-            font-family: Arial;
-        }
-
-        body {
-
-    
-            font-size: 12pt;
-            font-family: Arial;
-        }
-
-
-        .carouselBox
-        {
-            padding: 20px;
-
-        }
-
-        .dropDownHeader
-        {
-            border: 0px;
-            background-color: white;
-            margin-top: 20px;
-        }
-
-        .blackHorizontalBar
-        {
-            margin-top: 20px;
-            border-top: 3px solid black;
-            height: 0;
-            width: 100%;
-            background-color: black;
-
-        }
-        .dropdown-menu, .dropdown-menu.show {
-
-            position: static;
-        }
+       
+           
         </style>
 
       
@@ -63,53 +17,74 @@
     <body>
         <div id="carouselExample" class="carousel slide carousel-dark">
             <div class="carousel-inner">
+
                 <div class="carousel-item active">
-                    <div class="row g-0">
+                    <div class="row g-0 flex-nowrap">
                         <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px;"></div>
-                        <div class="col-5 carouselBox d-flex flex-column" style="background-color: #afe9e9; border: 3px solid black; border-left: 0px;">
-                            <h1>Shipping</h1>
-                            The shipping cell has foundations in the Travis family's business trade with Asia, founded by Henry’s father Thomas Travis in 1935.
-                            <br /><br />
+                        <div class="col-10">
+                        <div class="row g-0" >
                             
-                            Tricell resolves challenges in the sustainable and profitable use of renewable natural resources in four phenomenon-based research programmes that steer research in accordance with our strategy.
-                            <br />
-                            <a style="margin-top: auto;" href="">Read More</a>
+                                <div class="col-12 col-lg-6 carouselBox d-flex flex-column" style="background-color: #afe9e9; border: 3px solid black; border-left: 0px; min-height: 250px;">
+                                    <h1>Shipping</h1>
+                                    The shipping cell has foundations in the Travis family's business trade with Asia, founded by Henry’s father Thomas Travis in 1935.
+                                    <br /><br />
+                                    
+                                    <span class="extraText">Tricell resolves challenges in the sustainable and profitable use of renewable natural resources in four phenomenon-based research programmes that steer research in accordance with our strategy.</span>
+                                    <br />
+                                    <a style="margin-top: auto;" href="">Read More</a>
+                                </div>
+                            <div class="col-12 col-lg-6 carouselImage" style="border: 3px solid black; border-left: 0px; "><img src="images/shipping.png" class="d-block h-100 w-100"  alt="..."></div>
+                            </div>
                         </div>
-                        <div class="col-5" style="border: 3px solid black; border-left: 0px;"><img src="images/shipping.png" class="d-block w-100" alt="..."></div>
                         <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px; border-right: 0px;"></div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="row g-0">
-                        <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px;"></div>
-                        <div class="col-5 carouselBox d-flex flex-column" style="background-color: #abd037; border: 3px solid black; border-left: 0px;">
-                            <h1>Pharmaceutical Research</h1>
-                            The pharmaceutical cell was originally founded after the medicinal herbs were collected from Africa by Henry Travis in the late 1900's.
-                            <br /><br />
-                            Healthcare, at its core, is about caring for people and improving lives. This is the aim of BA Health, to assist global healthcare brands in understanding the healthcare space better with actionable insights in order to improve lives.
-                            <br />
 
-                            <a style="margin-top: auto;" href="">Read More</a>
+                <div class="carousel-item">
+
+                    <div class="row g-0 flex-nowrap">
+                        <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px;"></div>
+                        <div class="col-10">
+                        <div class="row g-0" >
+                            
+                                <div class="col-12 col-lg-6 carouselBox d-flex flex-column" style="background-color: #abd037; border: 3px solid black; border-left: 0px; min-height: 250px;">
+                   
+                                    <h1>Pharmaceutical Research</h1>
+                                    The pharmaceutical cell was originally founded after the medicinal herbs were collected from Africa by Henry Travis in the late 1900's.
+                                    <br /><br />
+                                    <span class="extraText">Healthcare, at its core, is about caring for people and improving lives. This is the aim of BA Health, to assist global healthcare brands in understanding the healthcare space better with actionable insights in order to improve lives.</span>
+                                    <br />
+
+                                    <a style="margin-top: auto;" href="">Read More</a>
+                                </div>
+                            <div class="col-12 col-lg-6 carouselImage" style="border: 3px solid black; border-left: 0px; "><img src="images/pharmaceutical_research.png" class="d-block h-100 w-100"  alt="..."></div>
+                            </div>
                         </div>
-                        <div class="col-5" style="border: 3px solid black; border-left: 0px;"><img src="images/pharmaceutical_research.png" class="d-block w-100" alt="..."></div>
                         <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px; border-right: 0px;"></div>
                     </div>
+
                 </div>
                 <div class="carousel-item">
-                    <div class="row g-0">
-                        <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px;"></div>
-                        <div class="col-5 carouselBox d-flex flex-column" style="background-color: #275026; border: 3px solid black; border-left: 0px; color:white">
-                            <h1>Natural Resources</h1>
-                            The natural resources cell is known for it's extraction of fossil fuels, operating an extensive oil facility in West Africa.
-                            <br /><br />
-                            Tricell resolves challenges in the sustainable and profitable use of renewable natural resources in four phenomenon-based research programmes that steer research in accordance with our strategy.
-                            <br />
 
-                            <a style="margin-top: auto;" href="">Read More</a>
+                    <div class="row g-0 flex-nowrap">
+                        <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px;"></div>
+                        <div class="col-10">
+                        <div class="row g-0" >
+                            
+                                <div class="col-12 col-lg-6 carouselBox d-flex flex-column" style="background-color: #275026; border: 3px solid black; color:white; border-left: 0px; min-height: 250px;">
+            
+                                    <h1>Natural Resources</h1>
+                                    The natural resources cell is known for it's extraction of fossil fuels, operating an extensive oil facility in West Africa.
+                                    <br /><br />
+                                    <span class="extraText">Tricell resolves challenges in the sustainable and profitable use of renewable natural resources in four phenomenon-based research programmes that steer research in accordance with our strategy.</span>
+                                                                <br />
+                                    <a style="margin-top: auto;" href="">Read More</a>
+                                </div>
+                            <div class="col-12 col-lg-6 carouselImage" style="border: 3px solid black; border-left: 0px; "><img src="images/natural_resources.png" class="d-block h-100 w-100"  alt="..."></div>
+                            </div>
                         </div>
-                        <div class="col-5" style="border: 3px solid black; border-left: 0px;"><img src="images/natural_resources.png" class="d-block w-100" alt="..."></div>
                         <div class="bg-white col-1" style="border: 3px solid black; border-left: 0px; border-right: 0px;"></div>
-                    </div>
+                </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -122,12 +97,19 @@
             </button>
         </div>
     
+
+
+
+
+
+
+
     <!-- Headquarters -->
     <div class="dropdown dropDownHeader">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
             <span style="font-weight: bold; font-size: 14pt; font-family: Arial;">Headquarters</span>
         </button>
-        <div class="dropdown-menu p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >
+        <div class="dropdown-menu show p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >
             <p>
                 The Tricell group, based in Trinadad, Caribbean Islands, has regional offices all over the world.
             </p>
@@ -140,7 +122,7 @@
     <div class="blackHorizontalBar"></div>
     <!-- Board of Directors -->
     <div class="dropdown dropDownHeader">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
             <span style="font-weight: bold; font-size: 14pt; font-family: Arial;">Board of Directors</span>
         </button>
         <div class="dropdown-menu p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >
@@ -156,7 +138,7 @@
     <div class="blackHorizontalBar"></div>
     <!-- International Suppliers -->
     <div class="dropdown dropDownHeader">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
             <span style="font-weight: bold; font-size: 14pt; font-family: Arial;">International Suppliers</span>
         </button>
         <div class="dropdown-menu p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >
@@ -173,7 +155,7 @@
 
     <!-- Kijuju Laboratory -->
     <div class="dropdown dropDownHeader">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
             <span style="font-weight: bold; font-size: 14pt; font-family: Arial;">Kijuju Laboratory</span>
         </button>
         <div class="dropdown-menu p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >
@@ -190,7 +172,7 @@
 
     <!-- Mariehamn Data Lab -->
     <div class="dropdown dropDownHeader">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
             <span style="font-weight: bold; font-size: 14pt; font-family: Arial;">Mariehamn Data Lab</span>
         </button>
         <div class="dropdown-menu p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >
@@ -206,7 +188,7 @@
     <div class="blackHorizontalBar"></div>
     <!-- History -->
     <div class="dropdown dropDownHeader">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: white; color: black; border: 0px; padding-left: 1.5rem">
             <span style="font-weight: bold; font-size: 14pt; font-family: Arial;">History</span>
         </button>
         <div class="dropdown-menu p-4 text-body-secondary" style="max-width: 500px; border: 0px;" >

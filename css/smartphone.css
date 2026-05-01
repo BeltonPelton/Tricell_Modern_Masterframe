@@ -1,0 +1,71 @@
+@media screen and (max-width: 767px)
+{
+
+
+    .carousel-control-prev, .carousel-control-next 
+    {
+        width: 8.333%;
+    }
+    h1 
+    {
+        font-weight: bold;
+        font-size: 14pt;
+        font-family: Arial;
+    }
+    h2 
+    {
+        font-weight: bold;
+        font-size: 12pt;
+        font-family: Arial;
+    }
+
+    body 
+    {
+
+    
+        font-size: 12pt;
+        font-family: Arial;
+    }
+
+
+    .carouselBox
+    {
+         padding: 20px;
+
+    }
+
+    .dropDownHeader
+    {
+        border: 0px;
+        background-color: white;
+        margin-top: 20px;
+    }
+
+    .blackHorizontalBar
+    {
+        margin-top: 20px;
+        border-top: 3px solid black;
+        height: 0;
+        width: 100%;
+        background-color: black;
+
+    }
+    .dropdown-menu, .dropdown-menu.show {
+
+        position: static;
+    }
+    .extraText
+    {
+        display: none;
+    }
+    .sideButtons
+    {
+        display: none;
+    }
+    .carouselImage
+    {
+        display: none;
+    }
+
+        
+}
