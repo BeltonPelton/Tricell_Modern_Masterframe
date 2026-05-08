@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Slide Login</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+}
+
+/* Knapp för att öppna login */
+.open-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Overlay (mörk bakgrund) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Sidebar login */
+.login-panel {
+    position: fixed;
+    top: 0;
+    right: -320px; /* gömd från början */
+    width: 320px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+/* Aktiv state */
+.login-panel.active {
+    right: 0;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Avatar */
+.avatar {
+    width: 70px;
+    height: 70px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 15px;
+}
+
+/* Titel */
+.title {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 13px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.input-group input:focus {
+    border-color: #22c55e;
+    outline: none;
+    box-shadow: 0 0 0 2px #dcfce7;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #16a34a;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #111;
+}
+
+.menu a:hover {
+    background: #dcfce7;
+}
+</style>
+</head>
+
+<body>
+
+<button class="open-btn" onclick="openLogin()">Logga in</button>
+
+<div class="overlay" id="overlay" onclick="closeLogin()"></div>
+
+<div class="login-panel" id="loginPanel">
+
+    <div class="avatar">T</div>
+    <div class="title">Tricell Login</div>
+
+    <div class="input-group">
+        <label>Användarnamn</label>
+        <input type="text" id="username">
+    </div>
+
+    <div class="input-group">
+        <label>Lösenord</label>
+        <input type="password" id="password">
+    </div>
+
+    <button class="login-btn" onclick="login()">Logga in</button>
+
+</div>
+<div class="sidebar" id="sidebar">
+
+    <div class="avatar" id="userAvatar">U</div>
+    <div class="title" id="userName">User</div>
+
+    <div class="menu">
+        <a href="#">Dashboard</a>
+        <a href="#">Tricell Calculator</a>
+        <a href="#">User Database</a>
+        <a href="#">Virus Livestream</a>
+        <a href="#">Activity Log</a>
+    </div>
+
+    <button class="login-btn" onclick="logout()">Log out</button>
+
+</div>
+
+
+</body>
+<script>
+function openLogin() {
+    document.getElementById("loginPanel").classList.add("active");
+    document.getElementById("overlay").classList.add("active");
+}
+
+function closeLogin() {
+    document.getElementById("loginPanel").classList.remove("active");
+    document.getElementById("overlay").classList.remove("active");
+}
+// enkel "databas" med hashat lösenord
+const users = {
+    "admin": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459f6f9c0f0f8f5d5c".toLowerCase()
+};
+
+// hash funktion
+async function hashPassword(password) {
+    const msgBuffer = new TextEncoder().encode(password);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function login() {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if (!users[username]) {
+        alert("Fel användarnamn");
+        return;
+    }
+
+    let hashed = await hashPassword(password);
+
+    if (hashed === users[username]) {
+        // SUCCESS
+        document.getElementById("userName").innerText = username;
+        document.getElementById("userAvatar").innerText = username.charAt(0).toUpperCase();
+
+        document.getElementById("loginPanel").classList.remove("active");
+        document.getElementById("sidebar").classList.add("active");
+    } else {
+        alert("Fel lösenord");
+    }
+}
+function logout() {
+    document.getElementById("sidebar").classList.remove("active");
+    document.getElementById("overlay").classList.remove("active");
+}
+
+</script>
+</html>

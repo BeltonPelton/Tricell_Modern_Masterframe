@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Tricell Panel</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* User section */
+.user {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 10px;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1f2937;
+}
+
+/* Menu */
+.menu {
+    flex: 1;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #1f2937;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background: #f0fdf4;
+}
+
+/* Active item */
+.menu a.active {
+    background: #dcfce7;
+    color: #15803d;
+    font-weight: 500;
+}
+
+/* Logout */
+.logout {
+    margin-top: auto;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.logout:hover {
+    background: #f3f4f6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="user">
+        <div class="avatar">U</div>
+        <div class="username">User</div>
+    </div>
+
+    <div class="menu">
+        <a href="Tricell-login-menu.html" class="active">Dashboard</a>
+        <a href="">Personell Registry</a>
+        <a href="#">User Database</a>
+        <a href="#">Virus Livestream</a>
+        <a href="#">Activity Log</a>
+    </div>
+
+    <div class="logout"><a href="Untitled-1.html">Log out</a></div>
+
+</div>
+
+</body>
+</html>
