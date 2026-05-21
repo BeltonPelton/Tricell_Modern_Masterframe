@@ -25,7 +25,7 @@ const fs = require('fs');
 // --------------------- Default-sida (om ingen info-sida anges) -------------------------------
 router.get('/', function(request, response)
 {
-    response.setHeader('Content-type','text/html');
+    response.setHeader('Content-type','text/html; charset=utf-8');
     if(request.session.loggedin)
     {
         
@@ -59,7 +59,7 @@ router.get('/:infotext', function(request, response)
 {
     const infotext = request.params.infotext;
     
-    response.setHeader('Content-type','text/html');
+    response.setHeader('Content-type','text/html; charset=utf-8');
     if(request.session.loggedin)
     {
             

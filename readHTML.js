@@ -4,7 +4,8 @@ function readHTML(htmlfile)
 {
  try 
   {
-     var htmltext = fs.readFileSync(htmlfile) 
+     var htmltext = fs.readFileSync(htmlfile, "utf8")
+     htmltext = htmltext.replace(/^\uFEFF/, "");
   } 
   catch (err) 
   {

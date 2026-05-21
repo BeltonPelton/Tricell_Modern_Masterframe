@@ -84,7 +84,7 @@ app.get('/', function(request, response)
 {
     const infotext = request.params.infotext;
     
-    response.setHeader('Content-type','text/html');
+    response.setHeader('Content-type','text/html; charset=utf-8');
     if(request.session.loggedin)
     {
         

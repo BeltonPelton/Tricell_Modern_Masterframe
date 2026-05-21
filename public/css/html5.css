@@ -14,6 +14,12 @@ a:active  { color: #aad037; text-decoration: none; }
 a:visited { color: #ffffff; text-decoration: none; }
 a:hover   { color: #aad037; text-decoration: none; }
 
+
+.dropdownlink:link    { color: black; text-decoration: none; }
+.dropdownlink:active  { color: #aad037; text-decoration: none; }
+.dropdownlink:visited { color: black; text-decoration: none; }
+.dropdownlink:hover   { color: #aad037; text-decoration: none; }
+
 /*-------------------------- VIDEO BACKGROUND -----------------------------*/
 video#bgvideo
 {
