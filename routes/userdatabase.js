@@ -79,7 +79,7 @@ function renderPageTop(request, response, pageTitle) {
     response.write(`<link rel="stylesheet" href="/css/personnel_registry.css" />`);
 }
 
-function renderPageBottom(response) {
+function renderPageBottom(request, response) {
     response.write("</div></div>");
     response.write(htmlInfoStop);
     if(request.session.loggedin)
@@ -149,7 +149,7 @@ router.get('/', async (request, response) => {
 
     htmlOutput += `</div></div>`;
     response.write(htmlOutput);
-    renderPageBottom(response);
+    renderPageBottom(request, response);
 });
 
 // -------------------------------------------------------------------------
