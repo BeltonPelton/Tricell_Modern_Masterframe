@@ -24,6 +24,7 @@ const readHTML = require('../readHTML.js');
 
 // Ladda in Masterframe-komponenter (HTML-mallar)
 var htmlHead = readHTML('./masterframe/head.html');
+var htmlHeadloggedin = readHTML('./masterframe/head-loggedin.html');
 var htmlHeader = readHTML('./masterframe/header.html');
 var htmlHeaderloggedin = readHTML('./masterframe/header-loggedin.html')
 var htmlMenu = readHTML('./masterframe/menu.html');    
@@ -188,7 +189,7 @@ router.get('/add', async (request, response) => {
             </p>
             <button type="submit" style="padding:10px 20px; background:green; color:white; border:none; border-radius:4px; cursor:pointer;">Create User</button>
         </form>`);
-    renderPageBottom(response);
+    renderPageBottom(request, response);
 });
 
 // -------------------------------------------------------------------------
