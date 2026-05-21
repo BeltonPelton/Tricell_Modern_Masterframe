@@ -1,0 +1,142 @@
+.open-btn {
+
+    padding: 10px 15px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* Overlay (mörk bakgrund) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+     z-index: 100;
+}
+
+/* Sidebar login */
+.login-panel {
+    position: fixed;
+    top: 0;
+    right: -320px; /* gömd från början */
+    width: 320px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+/* Aktiv state */
+.login-panel.active {
+    right: 0;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 100;
+}
+/* User section */
+.user {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* Avatar */
+.avatar {
+    width: 70px;
+    height: 70px;
+    background: #22c55e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 15px;
+}
+
+/* Titel */
+.title {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 13px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.input-group input:focus {
+    border-color: #22c55e;
+    outline: none;
+    box-shadow: 0 0 0 2px #dcfce7;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #16a34a;
+}
+.sidebar {
+    height: 100%;
+    background: #ffffff;
+    padding: 20px;
+    border: 3px solid black;
+    border-top: 0px;
+    box-sizing: border-box;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #111;
+}
+
+.menu a:hover {
+    background: #dcfce7;
+}

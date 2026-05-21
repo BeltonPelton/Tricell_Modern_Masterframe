@@ -1,0 +1,60 @@
+#texttable
+{
+	width: 100%;
+}
+#objectCode, #objectName
+{
+	height: 30px;
+	font-size: 20px;
+}
+#objectCode
+{
+	width: 80px;
+}
+#objectName
+{
+	width: 200px;
+}
+
+#objectCreator
+{
+	text-align: right;
+
+}
+#objectCreateTime
+{
+	text-align: right;
+
+}
+#objectText
+{
+	
+	border: 1px solid black;
+	background-color: #e5f5f8;
+	padding: 20px;
+	margin-top: 20px;
+}
+#editButton
+{
+	
+	border-collapse: collapse;
+	border: 2px solid black;
+	border-spacing: 0px; 
+	padding: 5px;
+	background-color: #92b3dd;
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+	vertical-align: center;
+
+	
+}
+#editText
+{
+	display: block;
+    	width: 100%;
+    	height: 100%;
+    	text-align: center;
+	color: #000000;
+	
+}

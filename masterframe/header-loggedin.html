@@ -1,0 +1,84 @@
+<div class="grid-container">
+
+        <!------- HEADER START  ----------->
+        <div class="grid-header">
+        <!---- Video Background ---->
+		<video id="bgvideo" src="media/redqueen.mp4" muted autoplay loop></video>
+
+		<!---- Header Start ---->
+		<header id="mainheader">
+
+			<section id="header-top">
+				<img id="nav-logo" src="images/Tricell-logo utan text.png" alt="Tricell Laboratories Inc." />
+				<nav id="topnav">
+					<span id="hamburger">&#9776;</span>
+					<ul class="topmenu">
+
+						<li class="topitem">Our Three Segments
+							<ul class="dropdownmenu">
+								<li class="dropdownitem"><a href="/shipping">Shipping</a></li>
+								<li class="dropdownitem"><a href="/pharmaceutical">Pharmaceutical Research</a></li>
+								<li class="dropdownitem"><a href="/naturalresources">Natural Resources</a></li>
+							</ul>
+						</li>
+
+						<li class="topitem">Our Company Structure
+							<ul class="dropdownmenu">
+								<li class="dropdownitem"><a href="/headquarters">Headquarters</a></li>
+								<li class="dropdownitem"><a href="/boardofdirectors">Board of Directors</a></li>
+								<li class="dropdownitem"><a href="/suppliers">International Suppliers</a></li>
+								<li class="dropdownitem"><a href="/kijuju">Kijuju Laboratory</a></li>
+								<li class="dropdownitem"><a href="/mariehamn">Mariehamn Data Lab</a></li>
+							</ul>
+						</li>
+
+						<li class="topitem">Our History
+							<ul class="dropdownmenu">
+								<li class="dropdownitem"><a href="/history">Full History</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</nav>
+
+				<div id="header-login">
+					<!---<span id="login-prompt">Are you one of us? Log In Here!</span> -->
+                    <a class="open-btn link-button" href="http://localhost:3000/api/logout">Logout</a>
+					<!---- <a href="/login" id="login-btn">LOG IN</a> -->
+				</div>
+			</section>
+
+			<section id="header-middle">
+				<img id="logo" src="images/Tricell_logo.png" alt="Tricell Laboratories Inc." height="150"/>
+			</section>
+
+		</header>
+        </div>
+		<!---- HEADER END ---->
+		 <!-------LOGIN MENU START ------>
+
+        <div class="overlay" id="overlay" onclick="closeLogin()"></div>
+		<form name="form" style="display: contents;" action="http://localhost:3000/api/login" onSubmit="return formCheck()"  method="get">
+			<div class="login-panel" id="loginPanel">
+
+				<div class="avatar">T</div>
+				<div class="title">Tricell Login</div>
+
+				<div class="input-group">
+					<label>Användarnamn</label>
+					<input type="text" id="femployeecode" name="femployeecode">
+				</div>
+
+				<div class="input-group">
+					<label>Lösenord</label>
+					
+					<input type="password" id="fpassword" name="fpassword">
+				</div>
+
+				<button class="login-btn" onclick="hashing()">Logga in</button>
+
+			</div>
+		</form>
+       
+
+        <!-------LOGIN MENU END -------->

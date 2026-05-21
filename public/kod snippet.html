@@ -1,0 +1,130 @@
+
+KOD SOM HÖR TILL VIRUSDATABS ROUTERN
+
+
+
+router.get('/:virusId', function (request, response) {
+  const targetId = request.params.virusId;
+  const safeVirusId = String(targetId).replace(/[^a-zA-Z0-9_-]/g, '');
+  const dirPath = path.join(__dirname, '..', 'data', safeVirusId, 'attachments');
+
+  let attachmentsHTML = '';
+
+  if (fs.existsSync(dirPath)) {
+    const files = fs.readdirSync(dirPath);
+
+    attachmentsHTML = files.map(file => {
+      const fullPath = path.join(dirPath, file);
+      const stats = fs.statSync(fullPath);
+
+      return `
+      <div class="source_row">
+        <span class="source_value">${file}</span>
+        <span class="source_size">${(stats.size / 1024).toFixed(1)} KB</span>
+        <span class="source_date"></span>
+        <div class="source_icons">
+          <form method="POST" action="/api/virusdatabase/${safeVirusId}/delete-file" style="display:inline;">
+      <input type="hidden" name="fileName" value="${file}">
+      <button type="submit">🗑️</button>
+    </form>
+        </div>
+      </div>
+    `;
+    }).join('');
+  } else {
+    attachmentsHTML = `<div class="source_row">Inga filer</div>`;
+  }
+  const virus = db.prepare('SELECT * FROM ResearchObjects WHERE id = ?').get(targetId)
+  console.log(targetId)
+  if (!virus) {
+    console.log("HITTADE INGEN MATCH!");
+    return response.status(404).send('virus not found!');
+  }
+
+  let htmloutput = `
+    <link rel="stylesheet" type="text/css" href="css/viruscss.css">
+
+    
+    <div style="padding: 20px;">
+        <h1>Research Database:</h1>
+        
+        <div class="virusRow" style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <span id="virus_number" style="font-size: 28px; font-weight: bold;">${virus.objectNumber}</span>
+                <span id="virus_name" style="font-size: 24px;">${virus.objectName}</span>
+            </div>
+            
+            <div class="dateTimeCreator" style="text-align: right;">
+                Created: ${virus.objectCreatedDate} ${virus.objectCreatedTime}<br>
+                By: ${virus.objectCreator}
+            </div>
+        </div>
+
+        <div id="objectText">
+            ${virus.objectText || "Forskningstext saknas i databasen."}
+        </div>
+
+        <div id="editbutton">
+            <a href="/api/virusdatabase/edit/${virus.ID}" class="edit-btn">Edit info</a>
+        </div>
+    
+  <div id="sources_container">
+    <div class="source_row">
+        <span class="source_label">Security data sheet:</span>
+        <span class="source_value">${virus.objectNumber} ${virus.objectName}.pdf</span>
+        <span class="source_size">1300 KB</span>
+        <span class="source_date">12.04.2023</span>
+        <div class="source_icons">
+            <span class="icon_edit">📝</span> 
+            <span class="icon_delete">🗑️</span>
+        </div>
+    </div>
+
+    <div class="source_row">
+        <span class="source_label">Security Presentation Video:</span>
+        <span class="source_value">http://www.youtube.com/...</span>
+        <span class="source_size"></span> <span class="source_date"></span>
+        <div class="source_icons">
+            <span class="icon_edit">📝</span>
+        </div>
+    </div>
+
+    <div class="source_row">
+        <span class="source_label">Security Handling Video:</span>
+        <span class="source_value">http://www.youtube.com/...</span>
+        <span class="source_size"></span>
+        <span class="source_date"></span>
+        <div class="source_icons">
+            <span class="icon_edit">📝</span>
+        </div>
+    </div>
+</div>
+<div class="addNewFile">
+    <p>Upload new file</p>
+    <span class="icon_add_file"><a href="/api/data/${safeVirusId}">📝</a></span>
+</div>
+  <span class="source_label">Attachment:</span>
+<div id="sources_container">
+  ${attachmentsHTML}
+</div>
+</div>
+`;
+
+
+  const currentUserId = request.session.userId || null;
+  const fullContent =
+    htmloutput;
+
+
+  response.render('user', {
+    userId: currentUserId, // Nu är variabeln DEFINIERAD för EJS
+    cookieemployeecode: request.cookies.employeecode,
+    cookiename: request.cookies.name,
+    cookielogintimes: request.cookies.logintimes,
+    cookielastlogin: request.cookies.lastlogin,
+    menu: readHTML('./masterframe/menu_back.html'),
+    content: fullContent
+  })
+});
+
+<!-- denna kod finns inne i virusdatabas routern. Den skapar knappen för att lägga till ny fil samt läser in det redan befintliga filerna   -->

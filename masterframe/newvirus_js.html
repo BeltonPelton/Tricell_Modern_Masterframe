@@ -1,0 +1,97 @@
+<script language="Javascript">
+
+//Tar fram objectNumber variablen som finns i query strängen. # hanteras annorlunda av webläsare så window.location.hash tar fram den
+function getQueryVariable(variable)
+{
+	var query = window.location.search.substring(1) + window.location.hash;
+	var vars = query.split("&");
+
+
+	for (var i = 0; i < vars.length; i++) 
+	{
+		var pair = vars[i].split("=");
+		if(pair[0] == variable)
+		{	
+			return pair[1];
+			
+		}
+	}
+	
+}
+var object = getQueryVariable("objectNumber")
+
+
+function readXMLfile(object)
+{
+	const xmlhttp = new XMLHttpRequest();
+	xmlhttp.onload = function()
+	{
+		getXMLdata(this);
+	}
+	xmlhttp.open("GET", "data/ResearchDatabase.xml", true);
+	xmlhttp.send();
+}
+
+function getXMLdata(xml)
+{
+	var xmlDoc = xml.responseXML;
+	var elements = xmlDoc.getElementsByTagName("researchObject");
+	
+	for(var i = 0; i<elements.length; i++)
+	{
+		if(elements[i].getElementsByTagName("objectNumber")[0].textContent == object)
+		{
+			var objectNumber = xmlDoc.getElementsByTagName("objectNumber")[i].childNodes[0].nodeValue;
+			var objectName = xmlDoc.getElementsByTagName("objectName")[i].childNodes[0].nodeValue;
+			var objectCreator = xmlDoc.getElementsByTagName("objectCreator")[i].childNodes[0].nodeValue;
+			var objectCreateDate = xmlDoc.getElementsByTagName("objectCreateDate")[i].childNodes[0].nodeValue;
+			var objectCreateTime = xmlDoc.getElementsByTagName("objectCreateTime")[i].childNodes[0].nodeValue;
+			var objectText = xmlDoc.getElementsByTagName("objectText")[i].childNodes[0].nodeValue;
+
+
+
+			document.getElementById("objectCode").value = objectNumber;
+			document.getElementById("objectName").value = objectName;
+			document.getElementById("objectCreator").value = objectCreator;
+			document.getElementById("objectCreateTime").value = objectCreateTime;
+			document.getElementById("objectCreateDate").value = objectCreateDate;
+			document.getElementById("objectText").value = objectText;
+		}
+	}
+
+	
+}
+
+function editFormCheck()
+{
+	if(document.editForm.objectCode.value == ("") || document.editForm.objectCode.value.indexOf('#') == -1 || document.editForm.objectCode.value.length > 7)
+	{
+		alert("You must give a valid virus code!");
+		return false;
+	}
+	if(document.editForm.objectName.value==(""))
+	{
+		alert("You must give a virus name");
+		return false;
+	}
+	if(document.editForm.objectText.value==(""))
+	{
+		alert("You must give a virus description");
+		return false;
+	}
+	if(document.editForm.objectCreateTime.value==("") || document.editForm.objectCreateDate.value==(""))
+	{
+		alert("You must give a date and time");
+		return false;
+	}
+	if(document.editForm.objectCreator.value==(""))
+	{
+		alert("You must give a creator");
+		return false;
+	}
+	return true;
+
+
+}
+
+</script>

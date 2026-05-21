@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN” "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv">
+
+<head>
+<title>Tricell Laboratories Inc, Åland</title>
+<base href="/">
+<link rel="stylesheet" href="/bootstrap-css/bootstrap.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/bootstrap-js/bootstrap.bundle.js"></script>
+<script src="/scripts/login.js"></script>
+<script src="/scripts/MD5.js"></script>
+
+<script language="JavaScript">
+
+	function hashing()
+	{
+		document.form.fpassword.value = hex_md5(document.form.fpassword.value);
+	}
+
+	function formCheck()
+	{
+		if(document.form.femployeecode.value=="")
+		{
+				   alert("You must give an employee code!");
+				return false;
+		}
+		if(document.form.fpassword.value=="")
+		{
+				   alert("You must give a password!");
+				return false;
+		}
+	}
+</script>
+
+<link rel="stylesheet" href="css/html5.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/tricell_footer_social.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/personnel_registry.css" />
+
+<!-- Egna CSS-definitioner som berör endast denna sida -->
+<style type="text/css">
+	
+	</style>
+
+</head>
+
+<body onload="loadChat()">
+

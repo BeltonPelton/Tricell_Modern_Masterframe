@@ -1,0 +1,32 @@
+<h1>New Virus:</h1>
+
+<!----------------- FORM START ----------------->
+<form name="editForm" action="" onSubmit="return editFormCheck()" method="post" enctype="multipart/form-data">
+
+
+	<table id="inputTable">
+        <tr class="table-row">
+            <td class="title">Number: </td><td><input type="text" name="objectCode" id="objectCode" size="10" maxlength="7"/></td>
+        </tr>
+        <tr class="table-row">
+            <td class="title">Name</td><td><input type="text" name="objectName" id="objectName" size="20" maxlength="20"/></td>
+        </tr>
+        <tr class="table-row">
+            <td class="title">Text: </td><td><textarea name="objectText" id="objectText"></textarea><br /></td>
+        </tr>
+    </table>
+
+    
+
+ 
+	
+
+    Security Datasheet: <br />
+    <input type="file" id="objectSource" name="objectDatasheet" /> <br />
+    Security Presentation Video: <br />
+    <input type="text" id="objectSource" name="objectPresentation" /> <br />
+    Security Handling Video: <br />
+    <input type="text" id="objectSource" name="objectHandling" /> <br />
+    <input type="submit" value="Add new virus" id="editButton" onClick=""/>
+
+</form>

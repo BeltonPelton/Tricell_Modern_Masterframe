@@ -1,0 +1,28 @@
+<% if (userId) { %>
+    <%- include('../masterframe/head-loggedin.html') %>
+    <%- include('../masterframe/header-loggedin.html') %>
+<% } else { %>
+    <%- include('../masterframe/head.html') %>
+    <%- include('../masterframe/header.html') %>
+<% } %>
+
+
+
+<%- include('../masterframe/infoStart.html') %>
+
+<div class="infobox">
+    <div class="wrapper">
+        <%- content %>
+    </div>
+</div>
+
+<%- include('../masterframe/infoStop.html') %>
+
+<% if (userId) { %>
+    <%- include('../masterframe/loggedinmenu.html') %>
+<% } %>
+
+<%- include('../masterframe/footer.html') %>
+
+
+<%- include('../masterframe/bottom.html') %>

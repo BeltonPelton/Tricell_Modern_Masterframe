@@ -1,0 +1,32 @@
+<h1>Edit Virus Information:</h1>
+
+<!----------------- FORM START ----------------->
+<form name="editForm" action="" onSubmit="return editFormCheck()" method="post" enctype="multipart/form-data">
+
+
+    <table id="inputTable">
+        <tr class="table-row">
+            <td class="title">Number: </td><td><input type="text" name="objectCode" id="objectCode" size="10" maxlength="7" value="!{objectNumber}"/></td>
+        </tr>
+        <tr class="table-row">
+            <td class="title">Name</td><td><input type="text" name="objectName" id="objectName" size="20" maxlength="20" value="!{objectName}"/></td>
+        </tr>
+        <tr class="table-row">
+            <td class="title">Text: </td><td><textarea name="objectText" id="objectText" >!{objectText}</textarea><br /></td>
+        </tr>
+    </table>
+
+    
+
+ 
+	
+
+    Security Datasheet: <br />
+    <div id="objectSource">!{objectDatasheet}<input type="file" id="objectFileInput" name="objectDatasheet"/></div> <br /> <br />
+    Security Presentation Video: <br />
+    <input type="text" id="objectSource" name="objectPresentation" value="!{presentationVideoLink}"/> <br />
+    Security Handling Video: <br />
+    <input type="text" id="objectSource" name="objectHandling" value="!{securityVideoLink}"/> <br />
+    <input type="submit" value="Submit Changes" id="editButton" onClick=""/>
+
+</form>

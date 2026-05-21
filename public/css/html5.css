@@ -1,0 +1,333 @@
+/* HTML5 Layout for Tricell Laboratories Master Frame
+, Based on Övning 8 layout */
+
+body
+{
+	margin: 0px;
+	background-color: #ffffff;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+a:link    { color: #ffffff; text-decoration: none; }
+a:active  { color: #aad037; text-decoration: none; }
+a:visited { color: #ffffff; text-decoration: none; }
+a:hover   { color: #aad037; text-decoration: none; }
+
+/*-------------------------- VIDEO BACKGROUND -----------------------------*/
+video#bgvideo
+{
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 270px;
+	object-fit: cover;
+}
+
+/*-------------------------- HEADER -----------------------------*/
+#mainheader
+{
+	height: 270px;
+	width: 100%;
+	position: relative;
+	z-index: 10;
+}
+
+#header-top
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
+	background-color: #385723;
+	padding: 0 20px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 100;
+}
+
+#header-middle
+{
+	position: relative;
+	height: 220px;
+}
+
+#logo
+{
+	margin-left: 100px;
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+/*-------------------------- NAV LOGO -----------------------------*/
+#nav-logo
+{
+	height: 38px;
+	width: auto;
+	display: block;
+	flex-shrink: 0;
+	margin-right: 12px;
+}
+
+/*-------------------------- TOP NAV -----------------------------*/
+#hamburger
+{
+	display: none;
+}
+
+#topnav
+{
+	position: static;
+	background-color: transparent;
+	height: auto;
+	width: auto;
+	z-index: 100;
+}
+
+ul.topmenu
+{
+	position: static;
+	transform: none;
+	padding: 0;
+	margin: 0;
+	height: 50px;
+	display: flex;
+	list-style: none;
+}
+
+li.topitem
+{
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	cursor: default;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	list-style: none;
+}
+
+li.topitem:hover
+{
+	background-color: #7aa65d;
+}
+
+ul.dropdownmenu
+{
+	visibility: hidden;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	z-index: 200;
+	min-width: 180px;
+	list-style: none;
+}
+
+li.topitem:hover ul.dropdownmenu
+{
+	visibility: visible;
+}
+
+li.dropdownitem
+{
+	background-color: #385723;
+	display: block;
+	height: 42px;
+	line-height: 42px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid black;
+	white-space: nowrap;
+	list-style: none;
+}
+
+li.dropdownitem:hover
+{
+	background-color: #7aa65d;
+}
+
+/*-------------------------- LOGIN BUTTON -----------------------------*/
+#header-login
+{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	white-space: nowrap;
+}
+
+#login-prompt
+{
+	font-family: arial;
+	font-size: 11px;
+	color: white;
+}
+
+#login-btn
+{
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	border: 2px solid white;
+	padding: 4px 14px;
+	text-decoration: none;
+}
+
+#login-btn:hover
+{
+	background-color: #7aa65d;
+	color: white;
+}
+
+/*-------------------------- MAIN CONTENT -----------------------------*/
+#maincontent
+{
+	width: 100%;
+	background-color: #ffffff;
+}
+
+#welcome
+{
+	display: flex;
+	align-items: stretch;
+	border-top: 4px solid #385723;
+}
+
+#welcome-text
+{
+	flex: 1;
+	padding: 50px 50px;
+}
+
+#welcome-heading
+{
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #385723;
+	margin: 0 0 8px 0;
+	line-height: 1.3;
+	padding-bottom: 12px;
+	border-bottom: 3px solid #aad037;
+}
+
+#welcome-text p
+{
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	line-height: 1.8;
+	margin: 0 0 14px 0;
+}
+
+#welcome-text p:last-child
+{
+	margin-bottom: 0;
+}
+
+#welcome-image
+{
+	flex: 1;
+	overflow: hidden;
+}
+
+#welcome-image img
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/*-------------------------- MOBILE -----------------------------*/
+@media (max-width: 768px) {
+
+	#nav-logo
+	{
+		display: none;
+	}
+
+	#header-top
+	{
+		flex-direction: column;
+		height: auto;
+		align-items: flex-start;
+		padding: 0;
+	}
+
+	#topnav
+	{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		height: 36px;
+	}
+
+	#topnav:hover
+	{
+		height: auto;
+		overflow: visible;
+	}
+
+	#hamburger
+	{
+		display: block;
+		height: 36px;
+		line-height: 36px;
+		padding-left: 10px;
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+	}
+
+	ul.topmenu
+	{
+		display: none;
+		flex-direction: column;
+		height: auto;
+		width: 100%;
+	}
+
+	#topnav:hover ul.topmenu
+	{
+		display: flex;
+	}
+
+	li.topitem
+	{
+		height: auto;
+		line-height: 36px;
+		padding: 5px 10px;
+		display: block;
+	}
+
+	ul.dropdownmenu
+	{
+		position: static;
+		visibility: visible;
+	}
+
+	li.dropdownitem
+	{
+		padding-left: 25px;
+	}
+
+	#header-login
+	{
+		padding: 8px 10px;
+	}
+
+	#logo
+	{
+		margin-left: 10px;
+	}
+}
